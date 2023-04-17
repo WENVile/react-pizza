@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function Categories() {
+	const categories = ['Всі', 'Краща ціна', 'Герої', 'Дивина', 'Файнест', 'Гурме'];
+
+	const [activeCategory, setActiveCategory] = useState(0);
+
+	const onClickCategory = (index) => {
+		setActiveCategory(index);
+	};
+
 	return (
 		<div className="categories">
 			<ul>
-				<li className="active">Всі</li>
-				<li>М'ясні</li>
-				<li>Вегетеріанські</li>
-				<li>Гриль</li>
-				<li>Гострі</li>
-				<li>Закриті</li>
+				{categories.map((el, index) => {
+					return (
+						<li
+							onClick={() => onClickCategory(index)}
+							className={activeCategory === index ? 'active' : ''}>
+							{el}
+						</li>
+					);
+				})}
 			</ul>
 		</div>
 	);

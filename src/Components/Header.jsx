@@ -5,7 +5,7 @@ function Header() {
 		<div className="header">
 			<div className="container">
 				<div className="header__logo">
-					<img width="38" src="./img/pizza-logo.svg" alt="Pizza logo" />
+					<img width="70" src="img/pizza-logo.svg" alt="Pizza logo" />
 					<div>
 						<h1>Pizza & Go</h1>
 						<p>найсмачніша піцца в місті</p>

@@ -1,24 +1,21 @@
 import React, { useState } from 'react';
 
-function PizzaBlock({ title, price }) {
+function PizzaBlock({ title, price, imageUrl }) {
 	const [pizzaCount, setPizzaCount] = useState(0);
+
 	return (
 		<div className="pizza-block">
-			<img
-				className="pizza-block__image"
-				src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
-				alt="Pizza"
-			/>
+			<img className="pizza-block__image" src={imageUrl} alt="Pizza" />
 			<h4 className="pizza-block__title">{title}</h4>
 			<div className="pizza-block__selector">
 				<ul>
-					<li className="active">тонкое</li>
-					<li>традиционное</li>
+					<li className="active">Тонке</li>
+					<li>Пухке</li>
 				</ul>
 				<ul>
-					<li className="active">26 см.</li>
-					<li>30 см.</li>
-					<li>40 см.</li>
+					<li className="active">26 см</li>
+					<li>30 см</li>
+					<li>40 см</li>
 				</ul>
 			</div>
 			<div className="pizza-block__bottom">
@@ -37,7 +34,7 @@ function PizzaBlock({ title, price }) {
 							fill="white"
 						/>
 					</svg>
-					<span>Добавить</span>
+					<span>Додати</span>
 					<i>{pizzaCount}</i>
 				</button>
 			</div>
