@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { setCategoryId, setSortId } from '../redux/slices/filterSlice';
 
 import Categories from '../Components/Categories';
 import Sort from '../Components/Sort';
 import PizzaBlock from '../Components/PizzaBlock';
 
 function Home() {
+	const activeCategory = useSelector((state) => state.filterSlice.categoryId);
+	const sortType = useSelector((state) => state.filterSlice.sort);
+	const dispatch = useDispatch();
 	const [items, setItems] = useState([]);
-	const [activeCategory, setActiveCategory] = useState(0);
-	const [sortType, setSortType] = React.useState({ name: 'популярністю', sort: 'rating' });
+
+	//const [sortType, setSortType] = React.useState({ name: 'популярністю', sort: 'rating' });
 
 	React.useEffect(() => {
 		fetch(
@@ -28,10 +34,10 @@ function Home() {
 			<div className="content__top">
 				<Categories
 					activeCategory={activeCategory}
-					onClickCategory={(index) => setActiveCategory(index)}
+					onClickCategory={(index) => dispatch(setCategoryId(index))}
 				/>
 
-				<Sort sortType={sortType} setSortType={(index) => setSortType(index)} />
+				<Sort sortType={sortType} setSortType={(index) => dispatch(setSortId(index))} />
 			</div>
 			<h2 className="content__title">Всі піцци</h2>
 			<div className="content__items">

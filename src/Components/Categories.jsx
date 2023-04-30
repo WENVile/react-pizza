@@ -2,7 +2,6 @@ import React from 'react';
 
 function Categories({ activeCategory, onClickCategory }) {
 	const categories = ['Всі', 'Краща ціна', 'Герої', 'Дивина', 'Файнест', 'Гурме'];
-	console.log(activeCategory);
 
 	return (
 		<div className="categories">
