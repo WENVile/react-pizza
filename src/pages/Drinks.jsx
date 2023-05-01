@@ -14,18 +14,10 @@ function Drinks() {
 
 	return (
 		<div className="container">
-			<h2 className="content__title">Всі напої</h2>
+			<h2 className="content__title">Всі Напої</h2>
 			<div className="content__items">
 				{items.map((el) => {
-					return (
-						<DrinksBlock
-							key={el.id}
-							title={el.title}
-							price={el.price}
-							imageUrl={el.imageUrl}
-							types={el.types}
-						/>
-					);
+					return <DrinksBlock key={el.uniqueId} {...el} />;
 				})}
 			</div>
 		</div>

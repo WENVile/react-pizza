@@ -1,6 +1,7 @@
 import React from 'react';
 
 function Sort({ sortType, setSortType }) {
+	const sortRef = React.useRef();
 	const sortList = [
 		{ name: 'популярністю', sort: 'rating' },
 		{ name: 'ціною', sort: 'price' },
@@ -13,8 +14,22 @@ function Sort({ sortType, setSortType }) {
 		setOpenPopup(false);
 	};
 
+	React.useEffect(() => {
+		const handleClickOutside = (event) => {
+			if (!event.composedPath().includes(sortRef.current)) {
+				setOpenPopup(false);
+			}
+		};
+
+		document.body.addEventListener('click', handleClickOutside);
+
+		return () => {
+			document.body.removeEventListener('click', handleClickOutside);
+		};
+	}, []);
+
 	return (
-		<div className="sort">
+		<div ref={sortRef} className="sort">
 			<div className="sort__label">
 				<svg
 					width="10"

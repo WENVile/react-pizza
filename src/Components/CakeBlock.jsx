@@ -1,15 +1,28 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { addItem } from '../redux/slices/cartSlice';
 
-function CakeBlock({ price, title, imageUrl, types }) {
+function CakeBlock({ id, uniqueId, price, title, imageUrl, types }) {
+	const dispatch = useDispatch();
 	const pizzasTypeName = ['220 г', '340 г'];
 	const [pizzaCount, setPizzaCount] = useState(0);
-	const [activeType, setActiveType] = useState(0);
+	const [activeType, setActiveType] = useState(types[0]);
 
 	const onClickPizzaAdd = () => {
+		const item = {
+			id,
+			uniqueId,
+			title,
+			price,
+			imageUrl,
+			type: pizzasTypeName[activeType],
+		};
+		dispatch(addItem(item));
+
 		setPizzaCount(pizzaCount + 1);
 	};
-	const onClickPizzaType = (index) => {
-		setActiveType(index);
+	const onClickPizzaType = (type) => {
+		setActiveType(type);
 	};
 
 	return (
@@ -22,9 +35,9 @@ function CakeBlock({ price, title, imageUrl, types }) {
 						{types.map((type, index) => {
 							return (
 								<li
-									onClick={() => onClickPizzaType(index)}
+									onClick={() => onClickPizzaType(type)}
 									key={index}
-									className={activeType === index ? 'active' : ''}>
+									className={activeType === type ? 'active' : ''}>
 									{pizzasTypeName[type]}
 								</li>
 							);

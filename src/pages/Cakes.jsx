@@ -17,15 +17,7 @@ function Cakes() {
 			<h2 className="content__title">Всі Десерти</h2>
 			<div className="content__items">
 				{items.map((el) => {
-					return (
-						<CakeBlock
-							key={el.id}
-							title={el.title}
-							price={el.price}
-							imageUrl={el.imageUrl}
-							types={el.types}
-						/>
-					);
+					return <CakeBlock key={el.uniqueId} {...el} />;
 				})}
 			</div>
 		</div>
