@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { setCategoryId, setSortId } from '../redux/slices/filterSlice';
@@ -16,17 +17,24 @@ function Home() {
 	//const [sortType, setSortType] = React.useState({ name: 'популярністю', sort: 'rating' });
 
 	React.useEffect(() => {
-		fetch(
-			`https://643ed69e6c30feced834b69c.mockapi.io/items?${
-				activeCategory === 0 ? '' : 'category=' + activeCategory
-			}&sortBy=${sortType.sort}${sortType.sort === 'rating' ? '&order=desc' : '&order=asc'}`,
-		)
-			.then((el) => {
-				return el.json();
-			})
-			.then((arr) => {
-				setItems(arr);
-			});
+		// fetch(
+		// 	`https://643ed69e6c30feced834b69c.mockapi.io/items?${
+		// 		activeCategory === 0 ? '' : 'category=' + activeCategory
+		// 	}&sortBy=${sortType.sort}${sortType.sort === 'rating' ? '&order=desc' : '&order=asc'}`,
+		// )
+		// 	.then((el) => {
+		// 		return el.json();
+		// 	})
+		// 	.then((arr) => {
+		// 		setItems(arr);
+		// 	});
+		axios
+			.get(
+				`https:643ed69e6c30feced834b69c.mockapi.io/items?${
+					activeCategory === 0 ? '' : 'category=' + activeCategory
+				}&sortBy=${sortType.sort}${sortType.sort === 'rating' ? '&order=desc' : '&order=asc'}`,
+			)
+			.then((res) => setItems(res.data));
 	}, [activeCategory, sortType]);
 
 	return (

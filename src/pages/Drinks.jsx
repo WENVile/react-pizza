@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 import DrinksBlock from '../Components/DrinksBlock';
 
@@ -6,13 +7,9 @@ function Drinks() {
 	const [items, setItems] = useState([]);
 
 	React.useEffect(() => {
-		fetch(`https://643ed69e6c30feced834b69c.mockapi.io/drinks`)
-			.then((el) => {
-				return el.json();
-			})
-			.then((arr) => {
-				setItems(arr);
-			});
+		axios
+			.get(`https://643ed69e6c30feced834b69c.mockapi.io/drinks`)
+			.then((res) => setItems(res.data));
 	}, []);
 
 	return (

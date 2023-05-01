@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 import CakeBlock from '../Components/CakeBlock';
 
@@ -6,13 +7,9 @@ function Cakes() {
 	const [items, setItems] = useState([]);
 
 	React.useEffect(() => {
-		fetch(`https://643ed69e6c30feced834b69c.mockapi.io/cakes`)
-			.then((el) => {
-				return el.json();
-			})
-			.then((arr) => {
-				setItems(arr);
-			});
+		axios
+			.get(`https://643ed69e6c30feced834b69c.mockapi.io/cakes`)
+			.then((res) => setItems(res.data));
 	}, []);
 
 	return (
