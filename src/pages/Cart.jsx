@@ -94,7 +94,7 @@ function Cart() {
 									</div>
 									<div className="cart__item-remove">
 										<div
-											onClick={() => dispatch(removeItem(el))}
+											onClick={() => dispatch(removeItem(index))}
 											className="button button--outline button--circle">
 											<svg
 												width="10"
