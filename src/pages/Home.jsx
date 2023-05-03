@@ -39,9 +39,8 @@ function Home() {
 			</div>
 			<h2 className="content__title">Всі Піци</h2>
 			<div className="content__items">
-				{items.map((el) => {
-					return <DrinksBlock key={el.uniqueId} {...el} />;
-				})}
+				hi
+				{console.log(items)}
 			</div>
 		</div>
 	);
