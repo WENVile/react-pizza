@@ -9,6 +9,7 @@ import NotFound from './pages/NotFound';
 import Cart from './pages/Cart';
 import Navigation from './Components/Navigation';
 import Cakes from './pages/Cakes';
+import OrderSuccess from './pages/OrderSuccess';
 
 function App() {
 	return (
@@ -22,6 +23,7 @@ function App() {
 					<Route path="/drinks" element={<Drinks />} />
 					<Route path="/cakes" element={<Cakes />} />
 					<Route path="/cart" element={<Cart />} />
+					<Route path="/success" element={<OrderSuccess />} />
 					<Route path="*" element={<NotFound />} />
 				</Routes>
 			</div>
