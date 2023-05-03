@@ -38,8 +38,8 @@ function Home() {
 			</div>
 			<h2 className="content__title">Всі Піци</h2>
 			<div className="content__items">
-				{items.map((el, index) => {
-					return <PizzaBlock key={index} {...el} />;
+				{items.map((el) => {
+					return <DrinksBlock key={el.uniqueId} {...el} />;
 				})}
 			</div>
 		</div>
