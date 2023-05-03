@@ -7,6 +7,7 @@ import { setCategoryId, setSortId } from '../redux/slices/filterSlice';
 import Categories from '../Components/Categories';
 import Sort from '../Components/Sort';
 import PizzaBlock from '../Components/PizzaBlock';
+import DrinksBlock from '../Components/DrinksBlock';
 
 function Home() {
 	const activeCategory = useSelector((state) => state.filterSlice.categoryId);
