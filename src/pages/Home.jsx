@@ -22,10 +22,10 @@ function Home() {
 		axios
 			.get(
 				
-				`https://643ed69e6c30feced834b69c.mockapi.io/items`
-				//${
-				// 	activeCategory === 0 ? '' : 'category=' + activeCategory
-				// }&sortBy=${sortType.sort}${sortType.sort === 'rating' ? '&order=desc' : '&order=asc'}`,
+				`https://643ed69e6c30feced834b69c.mockapi.io/items?
+				${
+					activeCategory === 0 ? '' : 'category=' + activeCategory
+				}&sortBy=${sortType.sort}${sortType.sort === 'rating' ? '&order=desc' : '&order=asc'}`,
 			)
 			.then((res) => setItems(res.data));
 	}, [activeCategory, sortType]);
