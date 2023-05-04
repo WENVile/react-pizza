@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addItem } from '../redux/slices/cartSlice';
 
-function PizzaBlock({ id, uniqueId, price, title, imageUrl, sizes, types }) {
+function PizzaBlock({ id, uniqueId, price, title, imageUrl, sizes, types, rating, categories }) {
 	const cartItem = useSelector((state) =>
 		state.cartSlice.items.find((obj) => obj.uniqueId === uniqueId),
 	);
