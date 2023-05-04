@@ -7,7 +7,7 @@ function Header() {
 	return (
 		<div className="header">
 			<div className="container">
-				
+					<Link to='/'>
 					<div className="header__logo">
 						<img width="70" src="img/pizza-logo.svg" alt="Pizza logo" />
 						<div>
@@ -15,6 +15,7 @@ function Header() {
 							<p>найсмачніша піца міста</p>
 						</div>
 					</div>
+					</Link>
 				
 				<div className="header__cart">
 					<Link to="/cart" className="button button--cart">
