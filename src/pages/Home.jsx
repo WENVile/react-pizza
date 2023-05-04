@@ -27,7 +27,7 @@ function Home() {
 				// 	activeCategory === 0 ? '' : 'category=' + activeCategory
 				// }&sortBy=${sortType.sort}${sortType.sort === 'rating' ? '&order=desc' : '&order=asc'}`,
 			)
-			.then((res) => setItems(res.data))
+			.then((res) => setItems(res.data));
 	}, [activeCategory, sortType]);
 
 	return (
