@@ -125,8 +125,9 @@ function CartItems({ items, totalPrice }) {
 						Сумма замовлення: <b>{totalPrice} грн</b>{' '}
 					</span>
 				</div>
+				
 				<div className="cart__bottom-buttons">
-					<Link to="/">
+				<Link to="/">
 					<div className="button button--outline button--add go-back-btn">
 						<svg
 							width="8"
@@ -143,8 +144,9 @@ function CartItems({ items, totalPrice }) {
 						</svg>
 
 						<span>Повернутись назад</span>
+						
 						</div>
-					</Link>
+						</Link>
 
 					<div className="button pay-btn">
 						<Link to="/success">
