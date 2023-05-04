@@ -6,7 +6,7 @@ function Navigation() {
 		<div className="navigation">
 			<ul>
 				<li>
-					<Link className="nav-li " to="/">
+					<Link className="nav-li" to="/">
 						Піца
 					</Link>
 				</li>
