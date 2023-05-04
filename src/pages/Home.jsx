@@ -42,9 +42,9 @@ function Home() {
 			</div>
 			<h2 className="content__title">Всі Піци</h2>
 			<div className="content__items">
-				 {items.map((obj, index) => {
-					return (<PizzaBlock key={index} obj={...obj} />)})
-				}
+			{items.map((el) => {
+					return <PizzaBlock key={el.uniqueId} {...el} />;
+				})}
 				
 			</div>
 		</div>
