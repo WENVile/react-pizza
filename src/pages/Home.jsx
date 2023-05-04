@@ -22,7 +22,7 @@ function Home() {
 		axios
 			.get(
 				
-				`https:643ed69e6c30feced834b69c.mockapi.io/items`
+				`https://643ed69e6c30feced834b69c.mockapi.io/items`
 				//${
 				// 	activeCategory === 0 ? '' : 'category=' + activeCategory
 				// }&sortBy=${sortType.sort}${sortType.sort === 'rating' ? '&order=desc' : '&order=asc'}`,
@@ -42,11 +42,10 @@ function Home() {
 			</div>
 			<h2 className="content__title">Всі Піци</h2>
 			<div className="content__items">
-				{ {items.map((obj, index) => {
-					console.log(obj)
-				})} 
-				
+				 {items.map((obj, index) => {
+					console.log(obj)})
 				}
+				
 			</div>
 		</div>
 	);
