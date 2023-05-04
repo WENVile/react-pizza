@@ -10,10 +10,11 @@ import PizzaBlock from '../Components/PizzaBlock';
 
 
 function Home() {
+	const [items, setItems] = useState([]);
 	const activeCategory = useSelector((state) => state.filterSlice.categoryId);
 	const sortType = useSelector((state) => state.filterSlice.sort);
 	const dispatch = useDispatch();
-	const [items, setItems] = useState([]);
+	
 
 	
 
@@ -26,7 +27,7 @@ function Home() {
 				// 	activeCategory === 0 ? '' : 'category=' + activeCategory
 				// }&sortBy=${sortType.sort}${sortType.sort === 'rating' ? '&order=desc' : '&order=asc'}`,
 			)
-			.then((res) => setItems(res.data));
+			.then((res) => setItems(res.data))
 	}, [activeCategory, sortType]);
 
 	return (
