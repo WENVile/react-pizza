@@ -42,11 +42,11 @@ function Home() {
 			</div>
 			<h2 className="content__title">Всі Піци</h2>
 			<div className="content__items">
-				{/* {items.map((obj, index) => {
-					return (<PizzaBlock key={index} {...obj} />)
-				})} */
+				{ {items.map((obj, index) => {
+					console.log(obj)
+				})} 
 				
-				console.log(obj)}
+				}
 			</div>
 		</div>
 	);
