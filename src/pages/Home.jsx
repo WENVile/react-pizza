@@ -46,7 +46,7 @@ function Home() {
 					return (<PizzaBlock key={index} {...obj} />)
 				})} */
 				
-				console.log(items)}
+				console.log(obj)}
 			</div>
 		</div>
 	);
