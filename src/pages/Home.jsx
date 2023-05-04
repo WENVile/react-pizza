@@ -7,7 +7,6 @@ import { setCategoryId, setSortId } from '../redux/slices/filterSlice';
 import Categories from '../Components/Categories';
 import Sort from '../Components/Sort';
 import PizzaBlock from '../Components/PizzaBlock';
-import DrinksBlock from '../Components/DrinksBlock';
 
 function Home() {
 	const activeCategory = useSelector((state) => state.filterSlice.categoryId);
@@ -20,12 +19,12 @@ function Home() {
 	React.useEffect(() => {
 		axios
 			.get(
-				`https:643ed69e6c30feced834b69c.mockapi.io/items?${
-					activeCategory === 0 ? '' : 'category=' + activeCategory
-				}&sortBy=${sortType.sort}${sortType.sort === 'rating' ? '&order=desc' : '&order=asc'}`,
+				`https:643ed69e6c30feced834b69c.mockapi.io/items`
+				//${
+				// 	activeCategory === 0 ? '' : 'category=' + activeCategory
+				// }&sortBy=${sortType.sort}${sortType.sort === 'rating' ? '&order=desc' : '&order=asc'}`,
 			)
-			.then((res) => setItems(res.data))
-			.then(console.log(items));
+			.then((res) => setItems(res.data));
 	}, [activeCategory, sortType]);
 
 	return (
@@ -40,8 +39,9 @@ function Home() {
 			</div>
 			<h2 className="content__title">Всі Піци</h2>
 			<div className="content__items">
-				hi
-				{console.log(items)}
+				{items.map((obj, index) => {
+					return (<PizzaBlock key={index} {...obj} />)
+				})}
 			</div>
 		</div>
 	);
