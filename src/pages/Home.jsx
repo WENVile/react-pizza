@@ -30,18 +30,18 @@ function Home() {
 	return (
 		<div className="container">
 			<div className="content__top">
-				{/* <Categories
+				<Categories
 					activeCategory={activeCategory}
 					onClickCategory={(index) => dispatch(setCategoryId(index))}
 				/>
 
-				<Sort sortType={sortType} setSortType={(index) => dispatch(setSortId(index))} /> */}
+				<Sort sortType={sortType} setSortType={(index) => dispatch(setSortId(index))} />
 			</div>
 			<h2 className="content__title">Всі Піци</h2>
 			<div className="content__items">
-				{items.map((obj, index) => {
+				{/* {items.map((obj, index) => {
 					return (<PizzaBlock key={index} {...obj} />)
-				})}
+				})} */}
 			</div>
 		</div>
 	);
