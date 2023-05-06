@@ -12,6 +12,7 @@ import PizzaBlock from '../Components/PizzaBlock';
 function Home() {
 	const [items, setItems] = useState([]);
 	const activeCategory = useSelector((state) => state.filterSlice.categoryId);
+	const categories = useSelector((state) => state.filterSlice.categories);
 	const sortType = useSelector((state) => state.filterSlice.sort);
 	const dispatch = useDispatch();
 	
@@ -28,6 +29,7 @@ function Home() {
 				}&sortBy=${sortType.sort}${sortType.sort === 'rating' ? '&order=desc' : '&order=asc'}`,
 			)
 			.then((res) => setItems(res.data));
+
 	}, [activeCategory, sortType]);
 
 	return (
@@ -40,7 +42,7 @@ function Home() {
 
 				<Sort sortType={sortType} setSortType={(index) => dispatch(setSortId(index))} />
 			</div>
-			<h2 className="content__title">Всі Піци</h2>
+			<h2 className="content__title">{categories[activeCategory]}</h2>
 			<div className="content__items">
 			{items.map((el) => {
 					return <PizzaBlock key={el.uniqueId} {...el} />;

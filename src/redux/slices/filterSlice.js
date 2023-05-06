@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
 	categoryId: 0,
+	categories: ['Всі Піци', 'Краща ціна', 'Герої', 'Дивина', 'Файнест', 'Гурме'],
 	sort: { name: 'популярністю', sort: 'rating' },
 };
 
